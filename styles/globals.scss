@@ -2,6 +2,65 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer base {
+  :root {
+    /* BACKGROUNDS */
+    --color-main-background: hsl(222, 26%, 31%);
+    --color-keypad-background: hsl(223, 31%, 20%);
+    --color-screen-background: hsl(224, 36%, 15%);
+
+    /* KEYS */
+    --color-key-primary: hsl(225, 21%, 49%);
+    --color-key-primary-shadow: hsl(224, 28%, 35%);
+    --color-key-secondary: hsl(6, 63%, 50%);
+    --color-key-secondary-shadow: hsl(6, 70%, 34%);
+    --color-key-muted: hsl(30, 25%, 89%);
+    --color-key-muted-shadow: hsl(28, 16%, 65%);
+
+    /* TEXT */
+    --color-text-primary: hsl(221, 14%, 31%);
+    --color-text-secondary: hsl(0, 0%, 100%);
+  }
+
+  .light-theme {
+    /* BACKGROUNDS */
+    --color-main-background: hsl(0, 0%, 90%);
+    --color-keypad-background: hsl(0, 5%, 81%);
+    --color-screen-background: hsl(0, 0%, 93%);
+
+    /* KEYS */
+    --color-key-primary: hsl(185, 42%, 37%);
+    --color-key-primary-shadow: hsl(185, 58%, 25%);
+    --color-key-secondary: hsl(25, 98%, 40%);
+    --color-key-secondary-shadow: hsl(25, 99%, 27%);
+    --color-key-muted: hsl(45, 7%, 89%);
+    --color-key-muted-shadow: hsl(35, 11%, 61%);
+
+    /* TEXT */
+    --color-text-primary: hsl(60, 10%, 19%);
+    --color-text-secondary: hsl(0, 0%, 100%);
+  }
+
+  .neon-theme {
+    /* BACKGROUNDS */
+    --color-main-background: hsl(268, 75%, 9%);
+    --color-keypad-background: hsl(268, 71%, 12%);
+    --color-screen-background: hsl(268, 71%, 12%);
+
+    /* KEYS */
+    --color-key-primary: hsl(281, 89%, 26%);
+    --color-key-primary-shadow: hsl(285, 91%, 52%);
+    --color-key-secondary: hsl(176, 100%, 44%);
+    --color-key-secondary-shadow: hsl(177, 92%, 70%);
+    --color-key-muted: hsl(268, 47%, 21%);
+    --color-key-muted-shadow: hsl(290, 70%, 36%);
+
+    /* TEXT */
+    --color-text-primary: hsl(52, 100%, 62%);
+    --color-text-secondary: hsl(198, 20%, 13%);
+  }
+}
+
 * {
   box-sizing: border-box;
   padding: 0;
