@@ -27,7 +27,9 @@ const ThemeSwitcher = () => {
         <span>3</span>
       </div>
       <div className="flex items-center">
-        <span className="uppercase text-skin-switcher mr-6 text-sm">theme</span>
+        <span className="uppercase text-skin-switcher mr-6 text-xs tracking-widest mt-1">
+          theme
+        </span>
         <div
           className="relative bg-skin-keypad w-16 h-6 rounded-2xl px-1 cursor-pointer"
           role="button"

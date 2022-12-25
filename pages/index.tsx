@@ -1,9 +1,10 @@
 import Head from "next/head";
-import { Inter } from "@next/font/google";
+import { League_Spartan } from "@next/font/google";
 
 import { ThemeSwitcher } from "components";
+import classNames from "classnames";
 
-const inter = Inter({ subsets: ["latin"] });
+const spartan = League_Spartan({ subsets: ["latin"], weight: "700" });
 
 export default function Home() {
   return (
@@ -17,7 +18,12 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <main className="w-full h-screen flex justify-center items-center bg-skin-main transition-all duration-200 ease-in-out">
+      <main
+        className={classNames(
+          "w-full h-screen flex justify-center items-center bg-skin-main transition-all duration-200 ease-in-out",
+          spartan.className
+        )}
+      >
         <ThemeSwitcher />
       </main>
     </>
