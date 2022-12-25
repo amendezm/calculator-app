@@ -1,6 +1,14 @@
 import { FC, ReactNode } from "react";
+import { League_Spartan } from "@next/font/google";
+import classNames from "classnames";
 
 import { useThemeContext } from "theme";
+
+const spartan = League_Spartan({
+  subsets: ["latin"],
+  weight: "700",
+  variable: "--font-spartan",
+});
 
 interface ILayoutProps {
   children: ReactNode;
@@ -9,7 +17,7 @@ interface ILayoutProps {
 const Layout: FC<ILayoutProps> = ({ children }) => {
   const { theme } = useThemeContext();
 
-  return <div className={theme}>{children}</div>;
+  return <div className={classNames(theme, spartan.variable)}>{children}</div>;
 };
 
 export { Layout };

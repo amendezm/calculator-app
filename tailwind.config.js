@@ -23,6 +23,9 @@ module.exports = {
           secondary: "var(--color-text-secondary)",
         },
       },
+      fontFamily: {
+        spartan: ["var(--font-spartan)"],
+      },
     },
   },
   plugins: [],

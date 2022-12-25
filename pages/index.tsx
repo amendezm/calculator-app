@@ -1,10 +1,6 @@
 import Head from "next/head";
-import { League_Spartan } from "@next/font/google";
 
 import { ThemeSwitcher } from "components";
-import classNames from "classnames";
-
-const spartan = League_Spartan({ subsets: ["latin"], weight: "700" });
 
 export default function Home() {
   return (
@@ -18,14 +14,16 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <main
-        className={classNames(
-          "w-full h-screen flex justify-center items-center bg-skin-main transition-all duration-200 ease-in-out",
-          spartan.className
-        )}
-      >
-        <ThemeSwitcher />
+      <main className="w-full h-screen flex justify-center items-center font-spartan bg-skin-main transition-all duration-200 ease-in-out">
+        <CalculatorHeader />
       </main>
     </>
   );
 }
+
+const CalculatorHeader = () => (
+  <div className="flex justify-between items-center w-10/12">
+    <h1 className="text-4xl text-skin-switcher font-spartan">calc</h1>
+    <ThemeSwitcher />
+  </div>
+);
