@@ -18,6 +18,7 @@ module.exports = {
       },
       textColor: {
         skin: {
+          switcher: "var(--color-text-switcher)",
           primary: "var(--color-text-primary)",
           secondary: "var(--color-text-secondary)",
         },
