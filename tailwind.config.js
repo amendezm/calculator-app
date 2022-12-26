@@ -1,10 +1,15 @@
-/** @type {import('tailwindcss').Config} */
+const defaultTheme = require("tailwindcss/defaultTheme");
+
 module.exports = {
   content: [
     "./pages/**/*.{js,ts,jsx,tsx}",
     "./components/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
+    screens: {
+      xs: "375px",
+      ...defaultTheme.screens,
+    },
     extend: {
       backgroundColor: {
         skin: {
@@ -16,11 +21,17 @@ module.exports = {
           "key-muted": "var(--color-key-muted)",
         },
       },
+      boxShadow: {
+        primary: "0px 4px 0px 0px var(--color-key-primary-shadow)",
+        secondary: "0px 4px 0px 0px var(--color-key-secondary-shadow)",
+        muted: "0px 4px 0px 0px var(--color-key-muted-shadow)",
+      },
       textColor: {
         skin: {
           switcher: "var(--color-text-switcher)",
           primary: "var(--color-text-primary)",
           secondary: "var(--color-text-secondary)",
+          equal: "var(--color-text-equal)",
         },
       },
       fontFamily: {

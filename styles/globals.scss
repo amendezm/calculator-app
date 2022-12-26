@@ -21,6 +21,7 @@
     --color-text-primary: hsl(221, 14%, 31%);
     --color-text-secondary: hsl(0, 0%, 100%);
     --color-text-switcher: hsl(0, 0%, 100%);
+    --color-text-equal: hsl(0, 0%, 100%);
   }
 
   .light-theme {
@@ -41,6 +42,7 @@
     --color-text-primary: hsl(60, 10%, 19%);
     --color-text-secondary: hsl(0, 0%, 100%);
     --color-text-switcher: hsl(60, 10%, 19%);
+    --color-text-equal: hsl(0, 0%, 100%);
   }
 
   .neon-theme {
@@ -59,8 +61,9 @@
 
     /* TEXT */
     --color-text-primary: hsl(52, 100%, 62%);
-    --color-text-secondary: hsl(198, 20%, 13%);
+    --color-text-secondary: hsl(0, 0%, 100%);
     --color-text-switcher: hsl(52, 100%, 62%);
+    --color-text-equal: hsl(198, 20%, 13%);
   }
 }
 
