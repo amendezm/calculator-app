@@ -14,7 +14,7 @@ interface IThemeProvider {
 }
 
 const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
-  const [theme, setTheme] = useState<ThemeType>();
+  const [theme, setTheme] = useState<ThemeType | undefined>(undefined);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
