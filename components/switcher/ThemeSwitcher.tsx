@@ -21,7 +21,7 @@ const ThemeSwitcher = () => {
 
   return (
     <div className="flex flex-col items-end">
-      <div className="w-16 text-skin-switcher flex justify-around text-xs mb-1 px-1">
+      <div className="w-16 text-skin-switcher flex justify-around text-xs sm:text-sm mb-1 px-1">
         <span>1</span>
         <span>2</span>
         <span>3</span>

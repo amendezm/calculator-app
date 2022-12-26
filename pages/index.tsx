@@ -16,7 +16,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <main className="w-full h-screen flex justify-center items-center font-spartan bg-skin-main transition-all duration-200 ease-in-out">
-        <div className="flex flex-col w-10/12 max-w-md">
+        <div className="flex flex-col w-10/12 max-w-[495px]">
           <CalculatorHeader />
           <Calculator />
         </div>
@@ -27,7 +27,7 @@ export default function Home() {
 
 const CalculatorHeader = () => (
   <div className="flex justify-between items-center w-full mb-8">
-    <h1 className="text-4xl text-skin-switcher font-spartan">calc</h1>
+    <h1 className="text-3xl text-skin-switcher font-spartan">calc</h1>
     <ThemeSwitcher />
   </div>
 );
