@@ -25,7 +25,7 @@ const Key: FC<IKeyProps> = ({ value }) => {
   return (
     <button
       className={classNames(
-        "bg-skin-key-muted text-skin-primary shadow-muted rounded-lg h-12 xs:h-16 sm:h-16 text-3xl",
+        "bg-skin-key-muted text-skin-primary shadow-muted rounded-lg h-12 xs:h-16 sm:h-16 text-3xl hover:brightness-150",
         {
           "bg-skin-key-secondary text-skin-equal shadow-secondary": isEqualKey,
           "col-span-2": isResetOrEqualKey,
