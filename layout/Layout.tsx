@@ -3,6 +3,7 @@ import { League_Spartan } from "@next/font/google";
 import classNames from "classnames";
 
 import { useThemeContext } from "theme";
+import { useWindowHeight } from "hooks";
 
 const spartan = League_Spartan({
   subsets: ["latin"],
@@ -16,8 +17,13 @@ interface ILayoutProps {
 
 const Layout: FC<ILayoutProps> = ({ children }) => {
   const { theme } = useThemeContext();
+  const { height } = useWindowHeight();
 
-  return <div className={classNames(theme, spartan.variable)}>{children}</div>;
+  return (
+    <div className={classNames(theme, spartan.variable)} style={{ height }}>
+      {children}
+    </div>
+  );
 };
 
 export { Layout };
