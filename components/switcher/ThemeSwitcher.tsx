@@ -5,18 +5,16 @@ import { useThemeContext } from "theme";
 const ThemeSwitcher = () => {
   const { theme, setTheme } = useThemeContext();
 
-  const handleThemeChange = () => {
-    if (!theme) {
-      setTheme("light-theme");
-      return;
-    }
-
-    if (theme === "light-theme") {
-      setTheme("neon-theme");
-      return;
-    }
-
+  const handleDefaultTheme = () => {
     setTheme(undefined);
+  };
+
+  const handleLightTheme = () => {
+    setTheme("light-theme");
+  };
+
+  const handleNeonTheme = () => {
+    setTheme("neon-theme");
   };
 
   return (
@@ -30,18 +28,29 @@ const ThemeSwitcher = () => {
         <span className="uppercase text-skin-switcher mr-6 text-xs tracking-widest mt-1">
           theme
         </span>
-        <div
-          className="relative bg-skin-keypad w-16 h-6 rounded-2xl px-1 cursor-pointer"
-          role="button"
-          onClick={handleThemeChange}
-        >
+        <div className="relative flex bg-skin-keypad w-16 h-6 rounded-2xl cursor-pointer">
+          <div
+            className="grow h-6 bg-skin-keypad rounded-l-2xl"
+            role="button"
+            onClick={handleDefaultTheme}
+          />
+          <div
+            className="grow h-6 bg-skin-keypad"
+            role="button"
+            onClick={handleLightTheme}
+          />
+          <div
+            className="grow h-6 bg-skin-keypad rounded-r-2xl"
+            role="button"
+            onClick={handleNeonTheme}
+          />
           <span
             className={classNames(
               "absolute w-4 h-4 bg-skin-key-secondary rounded-full top-1/2 -translate-y-1/2 transition-all duration-500",
               {
                 "left-1": !theme,
                 "left-1/2 -translate-x-1/2": theme === "light-theme",
-                "right-1": theme === "neon-theme",
+                "left-[94%] -translate-x-full": theme === "neon-theme",
               }
             )}
           />
