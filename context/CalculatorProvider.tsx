@@ -28,6 +28,7 @@ const CalculatorProvider: FC<ICalculatorProviderProps> = ({ children }) => {
       case "/":
         return;
       case ".":
+        if (value.includes(".")) return;
         setValue((value) => `${value}.`);
         return;
       case "=":
