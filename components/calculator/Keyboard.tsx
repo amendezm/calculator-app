@@ -2,6 +2,8 @@ import classNames from "classnames";
 import { FC } from "react";
 
 import { KEY_VALUES } from "constant";
+import { useCalculatorContext } from "context";
+import { KeyType } from "types";
 
 const Keyboard = () => {
   return (
@@ -14,10 +16,12 @@ const Keyboard = () => {
 };
 
 interface IKeyProps {
-  value: string;
+  value: KeyType;
 }
 
 const Key: FC<IKeyProps> = ({ value }) => {
+  const { handleKeyPress } = useCalculatorContext();
+
   const isEqualKey = value === "=";
   const isResetOrEqualKey = ["=", "reset"].includes(value);
   const isResetOrDelKey = ["del", "reset"].includes(value);
@@ -33,6 +37,7 @@ const Key: FC<IKeyProps> = ({ value }) => {
             isResetOrDelKey,
         }
       )}
+      onClick={() => handleKeyPress(value)}
     >
       {value}
     </button>

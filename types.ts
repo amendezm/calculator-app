@@ -1,6 +1,4 @@
-import { KeyType } from "types";
-
-const KEY_VALUES: KeyType[] = [
+const keys = [
   "7",
   "8",
   "9",
@@ -19,6 +17,6 @@ const KEY_VALUES: KeyType[] = [
   "x",
   "reset",
   "=",
-];
+] as const;
 
-export { KEY_VALUES };
+export type KeyType = typeof keys[number];
