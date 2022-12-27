@@ -21,39 +21,91 @@ const operators = ["+", "-", "/", "x"];
 const CalculatorProvider: FC<ICalculatorProviderProps> = ({ children }) => {
   const [expression, setExpression] = useState("");
   const [value, setValue] = useState("0");
+  const [operatorWasPressed, setOperatorWasPressed] = useState(false);
+  const [numberWasPressed, setNumberWasPressed] = useState(false);
+
+  const handleKeysState = (keyValue: KeyType) => {
+    switch (keyValue) {
+      case ".":
+      case "del":
+      case "reset":
+        setNumberWasPressed(false);
+        setOperatorWasPressed(false);
+        return;
+      case "+":
+      case "-":
+      case "x":
+      case "/":
+        setOperatorWasPressed(true);
+        return;
+      default:
+        setOperatorWasPressed(false);
+        setNumberWasPressed(true);
+    }
+  };
+
+  const handleNumericKeyPress = (keyValue: KeyType) => {
+    if (operatorWasPressed) {
+      setValue(keyValue);
+      return;
+    }
+
+    const numericValue = value.replace(/,/g, "");
+    if (numericValue.length === 15) return;
+
+    setValue(parseFloat(`${numericValue}${keyValue}`).toLocaleString());
+  };
+
+  const handleOperatorKeyPress = (keyValue: KeyType) => {
+    const numberPressed = numberWasPressed;
+    setNumberWasPressed(false);
+
+    if (!expression.length) {
+      setExpression(`${value}${keyValue}`);
+      return;
+    }
+
+    if (numberPressed) {
+      evaluateExpression();
+      setExpression(`${expression}${value}${keyValue}`);
+      return;
+    }
+
+    setExpression((expression) => `${expression.slice(0, -1)}${keyValue}`);
+  };
+
+  const evaluateExpression = () => {
+    if (!expression.length) {
+      return;
+    }
+
+    const fixedExpression = expression.replace(/x/g, "*");
+
+    const formula = numberWasPressed
+      ? `${fixedExpression}${value}`
+      : fixedExpression.slice(0, -1);
+
+    setNumberWasPressed(false);
+
+    setValue(`${eval(formula.replace(/,/g, ""))}`);
+  };
 
   const handleKeyPress = (keyValue: KeyType) => {
+    handleKeysState(keyValue);
+
     switch (keyValue) {
       case "+":
       case "-":
       case "x":
       case "/":
-        if (!expression.length) {
-          setExpression(`${value}${keyValue}`);
-          return;
-        }
-        if (operators.includes(expression.at(-1))) {
-          setExpression(
-            (expression) => `${expression.slice(0, -1)}${keyValue}`
-          );
-          return;
-        }
-        setExpression((expression) => `${expression}${keyValue}`);
+        handleOperatorKeyPress(keyValue);
         return;
       case ".":
         if (value.includes(".")) return;
         setValue((value) => `${value}.`);
         return;
       case "=":
-        if (!expression.length) {
-          return;
-        }
-        if (operators.includes(expression.at(-1))) {
-          setValue(`${eval(expression.slice(0, -1))}`);
-          setExpression("");
-          return;
-        }
-        setValue(`${eval(expression)}`);
+        evaluateExpression();
         setExpression("");
         return;
       case "del":
@@ -78,16 +130,7 @@ const CalculatorProvider: FC<ICalculatorProviderProps> = ({ children }) => {
           return;
         }
       default:
-        if (countOperators(expression) > 0) {
-          const newExpression = `${expression}${keyValue}`.replace(/x/g, "*");
-          setExpression((expression) => `${expression}${keyValue}`);
-          setValue(`${eval(newExpression)}`);
-          return;
-        }
-        const numericValue = value.replace(/,/g, "");
-        if (numericValue.length === 15) return;
-
-        setValue(parseFloat(`${numericValue}${keyValue}`).toLocaleString());
+        handleNumericKeyPress(keyValue);
     }
   };
 
