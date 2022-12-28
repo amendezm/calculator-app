@@ -15,8 +15,8 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <main className="w-full h-full flex justify-center items-center font-spartan bg-skin-main transition-all duration-200 ease-in-out">
-        <div className="flex flex-col w-10/12 max-w-[495px]">
+      <main className="w-full min-h-[inherit] flex justify-center items-center font-spartan bg-skin-main transition-all duration-200 ease-in-out">
+        <div className="flex flex-col w-11/12 sm:min-w-[350px] sm:w-[65vh] max-w-[550px]">
           <CalculatorHeader />
           <Calculator />
         </div>
