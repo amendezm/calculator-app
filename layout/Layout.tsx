@@ -20,7 +20,10 @@ const Layout: FC<ILayoutProps> = ({ children }) => {
   const { height } = useWindowHeight();
 
   return (
-    <div className={classNames(theme, spartan.variable)} style={{ height }}>
+    <div
+      className={classNames(theme, spartan.variable)}
+      style={{ minHeight: height }}
+    >
       {children}
     </div>
   );
