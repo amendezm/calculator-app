@@ -1,8 +1,8 @@
-#Frontend Mentor - Calculator app solution
+# Frontend Mentor - Calculator app solution
 
 This is a solution to the [Calculator app challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/calculator-app-9lteq5N29). Frontend Mentor challenges help you improve your coding skills by building realistic projects.
 
-##Table of contents
+## Table of contents
 
 -[Overview](#overview)
 
@@ -16,9 +16,9 @@ This is a solution to the [Calculator app challenge on Frontend Mentor](https://
 
   -[Built with](#built-with)
 
-##Overview
+## Overview
 
-###The challenge
+### The challenge
 
 Users should be able to:
 
@@ -26,16 +26,18 @@ Users should be able to:
 - Perform mathmatical operations like addition, subtraction, multiplication, and division
 - Adjust the color theme based on their preference
 
-###Screenshot
+### Screenshot
 
-###Links
+<img width="535" alt="image" src="https://user-images.githubusercontent.com/26444448/209890876-ae6012fc-2ca7-4b73-9b85-5bd825f08de2.png">
+
+### Links
 
 - Solution URL: [repository](https://github.com/amendezm/calculator-app)
 - Live Site URL: [website ](https://nextjs-calculator-app.vercel.app/)
 
-##My process
+## My process
 
-###Built with
+### Built with
 
 - Flexbox
 - CSS Grid
