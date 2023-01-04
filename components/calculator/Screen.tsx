@@ -11,11 +11,11 @@ const Screen = () => {
         {expression}
       </span>
       <Textfit
-        className="text-skin-switcher text-right text-5xl w-full"
+        className="text-skin-switcher text-right text-6xl w-full"
         mode="single"
         forceSingleModeWidth={false}
         min={30}
-        max={48}
+        max={64}
       >
         {value}
       </Textfit>
