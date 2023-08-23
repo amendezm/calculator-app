@@ -1,23 +1,25 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 
 const useWindowHeight = () => {
-  const [height, setHeight] = useState<number>();
-
-  useEffect(() => {
-    const onResize = () => {
-      setHeight(window.innerHeight);
-    };
-
-    onResize();
-
-    window.addEventListener("resize", onResize);
-
-    return () => {
-      window.removeEventListener("resize", onResize);
-    };
-  }, []);
+  const height = useSyncExternalStore(
+    subscribe,
+    getSnapshot,
+    getServerSnapshot
+  );
 
   return { height };
 };
+
+const subscribe = (callback: () => void) => {
+  window.addEventListener("resize", callback);
+
+  return () => {
+    window.removeEventListener("resize", callback);
+  };
+};
+
+const getSnapshot = () => `${window.innerHeight}`;
+
+const getServerSnapshot = () => "100vh";
 
 export { useWindowHeight };
