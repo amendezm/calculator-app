@@ -1,3 +1,5 @@
+"use client";
+
 import { Textfit } from "react-textfit";
 
 import { useCalculatorContext } from "context";

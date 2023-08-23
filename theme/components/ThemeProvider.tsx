@@ -5,7 +5,7 @@ interface ITheme {
   setTheme: (_theme: ThemeType) => void;
 }
 
-type ThemeType = "light-theme" | "neon-theme";
+type ThemeType = "light-theme" | "neon-theme" | undefined;
 
 const ThemeContext = createContext<ITheme | undefined>(undefined);
 
@@ -23,6 +23,15 @@ const ThemeProvider: FC<IThemeProvider> = ({ children }) => {
   );
 };
 
-const useThemeContext = () => useContext(ThemeContext);
+const useThemeContext = () => {
+  const context = useContext(ThemeContext);
+
+  if (!context)
+    throw new Error(
+      "useThemeContext hook should be used whithin a ThemeProvider"
+    );
+
+  return context;
+};
 
 export { ThemeProvider, useThemeContext };

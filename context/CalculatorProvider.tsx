@@ -141,14 +141,15 @@ const CalculatorProvider: FC<ICalculatorProviderProps> = ({ children }) => {
   );
 };
 
-const countOperators = (expression: string) =>
-  expression
-    .split("")
-    .reduce(
-      (acc, operator) => (operators.includes(operator) ? acc + 1 : acc),
-      0
+const useCalculatorContext = () => {
+  const context = useContext(CalculatorContext);
+
+  if (!context)
+    throw new Error(
+      "useCalculatorContext should be used whithin a CalculatorProvider"
     );
 
-const useCalculatorContext = () => useContext(CalculatorContext);
+  return context;
+};
 
 export { CalculatorProvider, useCalculatorContext };
